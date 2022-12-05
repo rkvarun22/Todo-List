@@ -1,7 +1,7 @@
-import { combineReducer } from 'redux';
+import { combineReducers } from 'redux';
 import todoListReducer from './todoList';
 
-const rootReducer = combineReducer({
+const rootReducer = combineReducers({
     todoList: todoListReducer,
 });
 
