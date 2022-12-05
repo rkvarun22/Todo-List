@@ -6,7 +6,7 @@ const TodolistItem = (props) => {
   return (
     <>
       {
-        props.data.map((item, index) => {
+       props.data.map((item, index) => {
           if(!item.date || !item.item || !item.category || !item.amount) {
             return null;
           }

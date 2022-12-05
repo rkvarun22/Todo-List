@@ -26,17 +26,6 @@ const TodoForm = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    // if (
-    //   !enterDate.date &&
-    //   !enterItem.title &&
-    //   !enterCategory.category &&
-    //   !enterAmount.amount
-    // ) {
-    //   alert("Please fill out all fields");
-    // } else {
-    //   alert("Form Submitted Successfully");
-    // }
-
     const TodoDate = {
       date: new Date(enterDate),
       item: enterItem,
@@ -49,12 +38,13 @@ const TodoForm = (props) => {
     setEnterCategory("");
     setEnterAmount("");
 
-    navigate("/");
+    
   };
 
   const navigate = useNavigate();
   const goToHome = () => {
     console.log("Home Page");
+    navigate("/");
     
   };
   return (

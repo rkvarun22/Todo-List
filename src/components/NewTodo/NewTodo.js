@@ -1,13 +1,12 @@
 import React from "react";
-import { useDispatch } from 'react-redux'
+import { connect } from "react-redux";
 import TodoForm from "../NewTodo/TodoForm";
 import "./NewTodo.css";
 import { addTodo } from "../../redux/action/action";
 
-const NewTodo = () => {
-  const dispatch = useDispatch();
-
+const NewTodo = (props) => {
   const saveTodoDataHandler = (enterTodoData) => {
+    //console.log(props);
     const todoData = {
       ...enterTodoData,
       id: Math.random().toString(),
@@ -15,7 +14,7 @@ const NewTodo = () => {
     let toDoList = JSON.parse(window.localStorage.getItem("toDoList")) || [];
     toDoList.push(todoData);
     window.localStorage.setItem("toDoList", JSON.stringify(toDoList));
-    dispatch(addTodo(todoData));
+    props.addTodo(todoData);    
   };
 
   return (
@@ -25,4 +24,10 @@ const NewTodo = () => {
   );
 };
 
-export default NewTodo;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addTodo: () => dispatch(addTodo()),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(NewTodo);

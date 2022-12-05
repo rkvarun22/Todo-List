@@ -1,4 +1,4 @@
-import React from "react";  
+import React from "react";
 import "./App.css";
 import NewTodo from "./components/NewTodo/NewTodo";
 import Home from "./components/Todo/Home";
@@ -8,7 +8,7 @@ const App = () => {
   return (
     <Routes>
       <Route exact path="/" element={<Home />} />
-      <Route exact path="/newtodo" element={<NewTodo />} />      
+      <Route exact path="/newtodo" element={<NewTodo />} />
     </Routes>
   );
 };
