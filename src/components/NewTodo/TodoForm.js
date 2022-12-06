@@ -25,20 +25,19 @@ const TodoForm = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-
-    const TodoDate = {
-      date: new Date(enterDate),
-      item: enterItem,
-      category: enterCategory,
-      amount: enterAmount,
-    };
-    props.onSaveTodoData(TodoDate);
-    setEnterDate("");
-    setEnterItem("");
-    setEnterCategory("");
-    setEnterAmount("");
-
-    
+    if(enterDate && enterItem && enterCategory && enterAmount){
+      const TodoDate = {
+        date: new Date(enterDate),
+        item: enterItem,
+        category: enterCategory,
+        amount: enterAmount,
+      };
+      props.onSaveTodoData(TodoDate);
+      setEnterDate("");
+      setEnterItem("");
+      setEnterCategory("");
+      setEnterAmount("");
+    }
   };
 
   const navigate = useNavigate();

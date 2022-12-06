@@ -6,15 +6,17 @@ import { addTodo } from "../../redux/action/action";
 
 const NewTodo = (props) => {
   const saveTodoDataHandler = (enterTodoData) => {
-    //console.log(props);
-    const todoData = {
-      ...enterTodoData,
-      id: Math.random().toString(),
-    };
-    let toDoList = JSON.parse(window.localStorage.getItem("toDoList")) || [];
-    toDoList.push(todoData);
-    window.localStorage.setItem("toDoList", JSON.stringify(toDoList));
-    props.addTodo(todoData);    
+    if(enterTodoData){
+      console.log(props);
+      const todoData = {
+        ...enterTodoData,
+        id: Math.random().toString(),
+      };
+      let toDoList = JSON.parse(window.localStorage.getItem("toDoList")) || [];
+      toDoList.push(todoData);
+      window.localStorage.setItem("toDoList", JSON.stringify(toDoList));
+      props.addTodo(todoData);  
+    }
   };
 
   return (
@@ -24,10 +26,12 @@ const NewTodo = (props) => {
   );
 };
 
+
 const mapDispatchToProps = (dispatch) => {
   return {
-    addTodo: () => dispatch(addTodo()),
+    addTodo: (todoData) => dispatch(addTodo(todoData)),
   };
 };
+
 
 export default connect(null, mapDispatchToProps)(NewTodo);

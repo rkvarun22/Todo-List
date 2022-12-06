@@ -4,7 +4,10 @@ import TodoList from "./TodoList";
 import { useNavigate } from "react-router-dom";
 
 function Home(props) {
+  // debugger
+  // console.log(props)
   const [dataToShow, setDataToShow] = useState(props.todoList);
+  
   const navigate = useNavigate();
   const onClickHandler = () => {
     navigate("/newtodo");

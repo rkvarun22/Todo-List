@@ -1,4 +1,4 @@
-import './TodoDate.css';
+import "./TodoDate.css";
 
 const TodoDate = (props) => {
   const date = new Date(props.date);
@@ -13,6 +13,6 @@ const TodoDate = (props) => {
       <div className="todo-date__day">{day}</div>
     </div>
   );
-}
+};
 
 export default TodoDate;

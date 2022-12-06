@@ -1,8 +1,11 @@
 import { ADD_TODO } from "./actionType";
 
 export const addTodo = (content) => {
-  return {
+debugger
+console.log(addTodo);
+   return {
     type: ADD_TODO,
-    payload: content,
+    payload: content
+
   };
 };
